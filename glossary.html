@@ -6,54 +6,84 @@
     <title>Technical Glossary | MODA ECCI x ADSO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <style>
-        :root { --vintage-bg: #fdfaf4; --vintage-card-bg: #f4e7d3; --vintage-dark: #1b2421; --vintage-blue: #1d3557; }
+        :root {
+            --vintage-bg: #fdfaf4;
+            --vintage-card-bg: #f4e7d3;
+            --vintage-dark: #1b2421;
+            --vintage-orange: #e76f51;
+            --vintage-blue: #1d3557;
+        }
+
         body { background-color: var(--vintage-bg); color: var(--vintage-dark); font-family: 'Segoe UI', system-ui, sans-serif; }
-        .card-glass { background-color: var(--vintage-card-bg); border: 3px solid var(--vintage-dark) !important; border-radius: 12px; margin-bottom: 15px; cursor: pointer; }
-        .term-definition { display: none; padding: 15px; border-top: 2px solid var(--vintage-dark); }
+        .navbar-glass { background-color: var(--vintage-bg); border-bottom: 3px solid var(--vintage-dark); }
+        .navbar-brand { font-weight: 800; color: var(--vintage-dark) !important; text-transform: uppercase; }
+        
+        .glossary-container { max-width: 800px; margin: 50px auto; }
+        .card-glass { background-color: var(--vintage-card-bg); border: 3px solid var(--vintage-dark) !important; border-radius: 12px; box-shadow: 5px 5px 0px var(--vintage-dark); margin-bottom: 20px; transition: transform 0.2s; cursor: pointer; }
+        .card-glass:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0px var(--vintage-dark); }
+        
+        .term-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .term-definition { display: none; padding: 0 20px 20px 20px; font-weight: 600; color: var(--vintage-dark); border-top: 2px solid var(--vintage-dark); padding-top: 15px; }
+        .badge-trans { background: var(--vintage-blue); color: #fff; padding: 2px 10px; border-radius: 4px; font-size: 0.8rem; }
+        
         .card-glass.active .term-definition { display: block; }
+        .card-glass.active i { transform: rotate(180deg); }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-light border-bottom border-3 border-dark sticky-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-glass sticky-top">
         <div class="container">
-            <a class="navbar-brand text-dark fw-bold" href="index.html"><i class="bi bi-arrow-left"></i> Volver al Inicio</a>
+            <a class="navbar-brand" href="index.html"><i class="bi bi-palette-fill" style="color: var(--vintage-orange);"></i> MODA ECCI x ADSO</a>
+            <a href="index.html" class="btn btn-dark fw-bold shadow-sm"><i class="bi bi-arrow-left"></i> Volver</a>
         </div>
     </nav>
 
-    <div class="container my-5" style="max-width: 800px;">
-        <h2 class="text-center fw-black mb-5">Technical Glossary</h2>
-        <script>
+    <div class="container glossary-container">
+        <h2 class="fw-black text-uppercase text-center mb-5">Technical Glossary</h2>
+        
+        <!-- Contenedor donde se insertarán los términos -->
+        <div id="glossary-list"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
             const terms = [
-                {t: "Color theory", tr: "Teoría del color", d: "Reglas y lineamientos científicos y artísticos."},
-                {t: "Color wheel", tr: "Círculo cromático", d: "Representación circular que organiza los colores."},
-                {t: "High contrast", tr: "Alto contraste", d: "Relación de color opuesta que inyecta energía."},
-                {t: "Low contrast", tr: "Bajo contraste", d: "Combinación sutil basada en matices cercanos."},
-                {t: "Color psychology", tr: "Psicología del color", d: "Estudio de las respuestas emocionales ante la luz."},
-                {t: "Hue", tr: "Matiz / Tono", d: "Propiedad pura del color."},
-                {t: "Chroma", tr: "Croma / Pureza", d: "Atributo de intensidad o saturación."},
-                {t: "Complementary", tr: "Complementarios", d: "Colores en extremos opuestos del círculo."},
-                {t: "Analogous", tr: "Análogos", d: "Colores vecinos que conviven sin tensión."},
-                {t: "Triad", tr: "Tríada", d: "Tres colores espaciados simétricamente."},
-                {t: "Monochromatic", tr: "Monocromático", d: "Un solo color base con variaciones de luz."},
-                {t: "Tetrad", tr: "Tétrada", d: "Cuatro colores distribuidos en pares."},
-                {t: "Visual perception", tr: "Percepción visual", d: "Capacidad para interpretar estímulos."},
-                {t: "Color semiotics", tr: "Semiología del color", d: "Interpretación como sistema de signos."},
-                {t: "Color nomenclature", tr: "Nomenclatura", d: "Sistemas para catalogar tonos exactos."}
+                {t: "Color theory", tr: "Teoría del color", d: "Reglas y lineamientos científicos y artísticos que rigen la mezcla de colores."},
+                {t: "Color wheel", tr: "Círculo cromático", d: "Representación circular que organiza los colores para facilitar el estudio de sus armonías."},
+                {t: "High contrast", tr: "Alto contraste", d: "Relación de color opuesta que inyecta energía y garantiza accesibilidad visual."},
+                {t: "Low contrast", tr: "Bajo contraste", d: "Combinación sutil basada en matices cercanos; evoca suavidad y armonía."},
+                {t: "Color psychology", tr: "Psicología del color", d: "Estudio de cómo la luz provoca respuestas emocionales en los usuarios."},
+                {t: "Hue", tr: "Matiz / Tono", d: "Propiedad pura del color que permite diferenciar una longitud de onda de otra."},
+                {t: "Chroma", tr: "Croma / Pureza", d: "Atributo que determina la intensidad o saturación de un color."},
+                {t: "Complementary", tr: "Complementarios", d: "Colores ubicados en extremos opuestos del círculo cromático."},
+                {t: "Analogous", tr: "Análogos", d: "Colores vecinos en el círculo que conviven sin generar tensión visual."},
+                {t: "Triad", tr: "Tríada", d: "Combinación de tres colores espaciados simétricamente en triángulo."},
+                {t: "Monochromatic", tr: "Monocromático", d: "Uso de un solo color base variando su luminosidad y oscuridad."},
+                {t: "Tetrad", tr: "Tétrada", d: "Coordinación de cuatro colores distribuidos simétricamente en pares."},
+                {t: "Visual perception", tr: "Percepción visual", d: "Capacidad cognitiva para interpretar estímulos lumínicos."},
+                {t: "Color semiotics", tr: "Semiología del color", d: "El color interpretado como un sistema de signos culturales."},
+                {t: "Color nomenclature", tr: "Nomenclatura", d: "Sistemas estructurados para catalogar y replicar tonos exactos."}
             ];
 
+            const list = document.getElementById('glossary-list');
             terms.forEach(item => {
-                document.write(`
-                    <div class="card-glass" onclick="this.classList.toggle('active')">
-                        <div class="p-3 d-flex justify-content-between">
-                            <span class="fw-bold fs-5">${item.t} <span class="badge bg-primary">${item.tr}</span></span>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                        <div class="term-definition fw-semibold">${item.d}</div>
+                const card = document.createElement('div');
+                card.className = 'card-glass';
+                card.onclick = function() { this.classList.toggle('active'); };
+                card.innerHTML = `
+                    <div class="term-header">
+                        <span class="fw-bold fs-5">${item.t} <span class="badge-trans">${item.tr}</span></span>
+                        <i class="bi bi-chevron-down"></i>
                     </div>
-                `);
+                    <div class="term-definition">${item.d}</div>
+                `;
+                list.appendChild(card);
             });
-        </script>
-    </div>
+        });
+    </script>
 </body>
 </html>
