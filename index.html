@@ -6,120 +6,52 @@
     <title>Moda ECCI - Espacio Creativo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
     <style>
-        :root {
-            --vintage-bg: #fdfaf4; --vintage-card-bg: #f4e7d3; --vintage-dark: #1b2421;
-            --vintage-orange: #e76f51; --vintage-yellow: #f4a261; --vintage-teal: #2a9d8f;
-            --vintage-blue: #1d3557; --vintage-crimson: #e63946; --text-dark: #1b2421;
-        }
-        body { background-color: var(--vintage-bg); color: var(--text-dark); font-family: 'Segoe UI', system-ui, sans-serif; overflow-x: hidden; }
+        :root { --vintage-bg: #fdfaf4; --vintage-card-bg: #f4e7d3; --vintage-dark: #1b2421; --vintage-orange: #e76f51; --vintage-yellow: #f4a261; --vintage-teal: #2a9d8f; --vintage-blue: #1d3557; --vintage-crimson: #e63946; }
+        body { background-color: var(--vintage-bg); color: var(--vintage-dark); font-family: 'Segoe UI', system-ui, sans-serif; }
         .navbar-glass { background-color: var(--vintage-bg); border-bottom: 3px solid var(--vintage-dark); }
-        .navbar-brand { font-weight: 800; color: var(--vintage-dark) !important; text-transform: uppercase; letter-spacing: 1px; }
-        .hero-gradient { background: linear-gradient(135deg, var(--vintage-yellow), var(--vintage-orange)); padding: 90px 0; border-bottom: 4px solid var(--vintage-dark); margin-bottom: 50px; }
-        .card-glass { background-color: var(--vintage-card-bg); border: 3px solid var(--vintage-dark) !important; border-radius: 12px; box-shadow: 5px 5px 0px var(--vintage-dark); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .btn-toggle-lang { background: var(--vintage-blue); border: 2px solid var(--vintage-dark); color: #fff; font-weight: 700; border-radius: 8px; padding: 8px 20px; box-shadow: 3px 3px 0px var(--vintage-dark); }
-        .c-orange { color: var(--vintage-orange); } .c-teal { color: var(--vintage-teal); } .c-blue { color: var(--vintage-blue); } .c-crimson { color: var(--vintage-crimson); }
+        .hero-gradient { background: linear-gradient(135deg, var(--vintage-yellow), var(--vintage-orange)); padding: 80px 0; border-bottom: 4px solid var(--vintage-dark); }
+        .card-glass { background-color: var(--vintage-card-bg); border: 3px solid var(--vintage-dark) !important; border-radius: 12px; box-shadow: 5px 5px 0px var(--vintage-dark); }
     </style>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark navbar-glass sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="bi bi-palette-fill c-orange"></i> MODA ECCI x ADSO</a>
-            <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" id="nav-inicio" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" id="nav-experiencia" href="#experiencia">Mi Experiencia</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" id="nav-sostenibilidad" href="#sostenibilidad">Sostenibilidad</a></li>
-                    <li class="nav-item me-2"><a class="btn btn-sm text-white bg-dark rounded px-3 fw-bold" href="glossary.html"><i class="bi bi-search"></i> Glossary</a></li>
-                    <li class="nav-item mt-2 mt-lg-0">
-                        <button id="btnToggleLang" class="btn-toggle-lang btn-sm"><i class="bi bi-translate"></i> Ver en Inglés</button>
-                    </li>
-                </ul>
+            <a class="navbar-brand fw-bold text-dark" href="#"><i class="bi bi-palette-fill" style="color: var(--vintage-orange);"></i> MODA ECCI x ADSO</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-dark fw-bold" href="#inicio">Inicio</a>
+                <a class="nav-link text-dark fw-bold" href="#experiencia">Experiencia</a>
+                <a class="btn btn-dark btn-sm fw-bold px-3" href="glossary.html">Glossary</a>
             </div>
         </div>
     </nav>
 
     <header id="inicio" class="hero-gradient text-center">
         <div class="container">
-            <span class="badge bg-dark text-white mb-3 px-4 py-3 rounded shadow-sm fw-black fs-4" id="hero-badge">SARA VILORIA</span>
-            <h1 class="display-4 fw-black mb-3 text-uppercase" id="hero-title">El Color es un Lenguaje Caprichoso</h1>
-            <p class="fs-5 text-dark fw-semibold max-w-2xl mx-auto" id="hero-desc">Análisis técnico de la semiología visual, contrastes y armonías cromáticas aplicadas al diseño de interfaces UX.</p>
+            <span class="badge bg-dark fs-4 px-4 py-3 rounded shadow-sm">SARA VILORIA</span>
+            <h1 class="display-4 fw-black text-uppercase mt-3">El Color es un Lenguaje Caprichoso</h1>
         </div>
     </header>
 
     <main class="container my-5">
         <section id="experiencia" class="my-5">
-            <div class="text-center mb-5"><h2 class="fw-bold text-uppercase text-dark" id="section-title">Mi Experiencia con el Color</h2></div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4"><div class="card card-glass h-100 p-4"><i class="bi bi-eye-fill c-crimson fs-3 mb-2"></i><h5 class="fw-bold" id="card1-title">Percepción Visual</h5><p class="small fw-semibold" id="card1-text">Mi asistencia a la ponencia me permitió comprender que el color trasciende su rol como simple recurso estético. Descubrí cómo la percepción humana del espectro cromático es, en esencia, un fenómeno biológico y psicológico complejo, consolidando al color como una herramienta de comunicación técnica. Entender la interacción entre la luz y el ojo me ha brindado una base matemática y científica para justificar mis decisiones de diseño en cualquier interfaz. Esta comprensión es vital para manipular la atención del usuario hacia elementos críticos, optimizando la experiencia mediante el uso estratégico de la psicología del color aplicada a la arquitectura de información.</p></div></div>
-                <div class="col-md-4"><div class="card card-glass h-100 p-4"><i class="bi bi-bezier2 c-teal fs-3 mb-2"></i><h5 class="fw-bold" id="card2-title">Armonías y Círculo</h5><p class="small fw-semibold" id="card2-text">Realicé un análisis exhaustivo sobre la teoría del color y su aplicación en entornos digitales. Aprendí a manipular el círculo cromático mediante reglas de armonía —como la complementariedad y la analogía— no solo para crear belleza, sino para organizar la jerarquía visual de un software. Esta estructura lógica garantiza que el usuario pueda navegar de forma intuitiva, permitiendo que la paleta cromática actúe como un hilo conductor que guía la experiencia del usuario de manera fluida y coherente. Es un proceso metódico que transforma la interfaz en un sistema de navegación claro y funcional.</p></div></div>
-                <div class="col-md-4"><div class="card card-glass h-100 p-4"><i class="bi bi-layout-wtf c-blue fs-3 mb-2"></i><h5 class="fw-bold" id="card3-title">Contraste UX</h5><p class="small fw-semibold" id="card3-text">Profundizé en la ciencia del contraste y su impacto crítico en la usabilidad y accesibilidad (WCAG). Entendí que el contraste no es solo una elección de diseño, sino una necesidad funcional para asegurar la legibilidad y reducir la carga cognitiva del usuario. Aprendí a aplicar contrastes de luminancia calculados para destacar elementos de acción clave (CTA), inyectando una dosis controlada de dinamismo y energía que mejora notablemente la retención y la interacción dentro del ecosistema digital. La accesibilidad es, por tanto, un pilar que define la calidad profesional del software.</p></div></div>
-            </div>
-        </section>
-
-        <section id="sostenibilidad" class="my-5">
-            <div class="card card-glass p-5 text-center">
-                <h3 class="fw-bold text-dark mb-4" id="sos-title">Tecnología, Sostenibilidad y Economía Circular</h3>
-                <p class="text-dark mx-auto max-w-3xl lh-lg fw-semibold" id="sos-desc">La reciente conferencia sobre diseño y color nos ha invitado a realizar una reflexión profunda: debemos aprender a ver el material como la ejecución tangible de nuestras ideas y el color como la promesa de durabilidad y significado. Al trasladar este análisis crítico al campo del software y al programa ADSO, comprendemos que la optimización técnica de interfaces y el diseño de arquitecturas de datos no son solo procesos estéticos, sino herramientas fundamentales para la sostenibilidad. Un sistema bien estructurado y eficiente reduce drásticamente el desperdicio informático, la carga cognitiva del usuario y el consumo energético innecesario. En última instancia, esta visión nos permite sincronizarnos de manera idónea con la producción sostenible y los principios de una verdadera economía circular aplicada al desarrollo tecnológico.</p>
+            <h2 class="text-center fw-bold mb-5">Mi Experiencia con el Color</h2>
+            <!-- Galería de 17 proyectos -->
+            <div class="row g-3">
+                <script>
+                    for (let i = 1; i <= 17; i++) {
+                        document.write(`
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card card-glass h-100 p-1">
+                                    <img src="image_09bf5d.png" alt="Proyecto ${i}" class="img-fluid rounded" style="aspect-ratio: 1/1; object-fit: cover;">
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
             </div>
         </section>
     </main>
-
-    <footer class="text-center py-4 mt-5 border-top border-3 border-dark" style="background-color: var(--vintage-bg);">
-        <p class="mb-1 text-dark fw-bold" id="footer-main">Karen Michel Olaya Doncel | SENA • Centro de Manufactura en Textil y Cuero</p>
-        <small class="text-muted fw-bold" id="footer-sub">Análisis y Desarrollo de Software (ADSO) - 2026</small>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const btnLang = document.getElementById('btnToggleLang');
-        let isEnglish = false;
-        const translations = {
-            es: { 
-                navInicio: "Inicio", navExp: "Mi Experiencia", navSos: "Sostenibilidad", badge: "SARA VILORIA", 
-                title: "El Color es un Lenguaje Caprichoso", desc: "Análisis técnico de la semiología visual, contrastes y armonías cromáticas aplicadas al diseño de interfaces UX.", 
-                secTitle: "Mi Experiencia con el Color", card1Title: "Percepción Visual", card1Text: "Mi asistencia a la ponencia me permitió comprender que el color trasciende su rol como simple recurso estético. Descubrí cómo la percepción humana del espectro cromático es, en esencia, un fenómeno biológico y psicológico complejo, consolidando al color como una herramienta de comunicación técnica. Entender la interacción entre la luz y el ojo me ha brindado una base matemática y científica para justificar mis decisiones de diseño en cualquier interfaz. Esta comprensión es vital para manipular la atención del usuario hacia elementos críticos, optimizando la experiencia mediante el uso estratégico de la psicología del color aplicada a la arquitectura de información.", 
-                card2Title: "Armonías y Círculo", card2Text: "Realicé un análisis exhaustivo sobre la teoría del color y su aplicación en entornos digitales. Aprendí a manipular el círculo cromático mediante reglas de armonía —como la complementariedad y la analogía— no solo para crear belleza, sino para organizar la jerarquía visual de un software. Esta estructura lógica garantiza que el usuario pueda navegar de forma intuitiva, permitiendo que la paleta cromática actúe como un hilo conductor que guía la experiencia del usuario de manera fluida y coherente. Es un proceso metódico que transforma la interfaz en un sistema de navegación claro y funcional.", 
-                card3Title: "Contraste UX", card3Text: "Profundizé en la ciencia del contraste y su impacto crítico en la usabilidad y accesibilidad (WCAG). Entendí que el contraste no es solo una elección de diseño, sino una necesidad funcional para asegurar la legibilidad y reducir la carga cognitiva del usuario. Aprendí a aplicar contrastes de luminancia calculados para destacar elementos de acción clave (CTA), inyectando una dosis controlada de dinamismo y energía que mejora notablemente la retención y la interacción dentro del ecosistema digital. La accesibilidad es, por tanto, un pilar que define la calidad profesional del software.", 
-                sosTitle: "Tecnología, Sostenibilidad y Economía Circular", sosDesc: "La reciente conferencia sobre diseño y color nos ha invitado a realizar una reflexión profunda: debemos aprender a ver el material como la ejecución tangible de nuestras ideas y el color como la promesa de durabilidad y significado. Al trasladar este análisis crítico al campo del software y al programa ADSO, comprendemos que la optimización técnica de interfaces y el diseño de arquitecturas de datos no son solo procesos estéticos, sino herramientas fundamentales para la sostenibilidad. Un sistema bien estructurado y eficiente reduce drásticamente el desperdicio informático, la carga cognitiva del usuario y el consumo energético innecesario. En última instancia, esta visión nos permite sincronizarnos de manera idónea con la producción sostenible y los principios de una verdadera economía circular aplicada al desarrollo tecnológico.", 
-                footMain: "Karen Michel Olaya Doncel | SENA • Centro de Manufactura en Textil y Cuero", footSub: "Análisis y Desarrollo de Software (ADSO) - 2026" 
-            },
-            en: { 
-                navInicio: "Home", navExp: "My Experience", navSos: "Sustainability", badge: "SARA VILORIA", 
-                title: "Color is a Capricious Language", desc: "Technical analysis of visual semiotics, contrasts, and chromatic harmonies applied to UX interface design.", 
-                secTitle: "My Experience with Color", card1Title: "Visual Perception", card1Text: "My attendance at the keynote allowed me to understand that color transcends its role as a simple aesthetic resource. I discovered how human perception of the chromatic spectrum is, in essence, a complex biological and psychological phenomenon, establishing color as a technical communication tool. Understanding the interaction between light and the eye has provided me with a mathematical and scientific foundation to justify my design decisions in any interface. This understanding is vital for manipulating user attention toward critical elements, optimizing the experience through the strategic use of color psychology applied to information architecture.", 
-                card2Title: "Harmonies & Wheel", card2Text: "I conducted an exhaustive analysis of color theory and its application in digital environments. I learned to manipulate the color wheel using harmony rules—such as complementarity and analogy—not just to create beauty, but to organize the visual hierarchy of software. This logical structure ensures that the user can navigate intuitively, allowing the chromatic palette to act as a thread that guides the user experience in a fluid and coherent manner. It is a methodical process that transforms the interface into a clear and functional navigation system.", 
-                card3Title: "UX Contrast", card3Text: "I delved into the science of contrast and its critical impact on usability and accessibility (WCAG). I understood that contrast is not just a design choice, but a functional necessity to ensure legibility and reduce user cognitive load. I learned to apply calculated luminance contrasts to highlight key action elements (CTA), injecting a controlled dose of dynamism and energy that significantly improves retention and interaction within the digital ecosystem. Accessibility is, therefore, a pillar that defines the professional quality of software.", 
-                sosTitle: "Technology, Sustainability and Circular Economy", sosDesc: "The recent conference on design and color invited us to reflect deeply: we must learn to see material as the tangible execution of our ideas and color as a promise of durability and meaning. By applying this critical analysis to the software field and the ADSO program, we understand that technical interface optimization and data architecture design are not just aesthetic processes, but fundamental tools for sustainability. A well-structured and efficient system drastically reduces digital waste, user cognitive load, and unnecessary energy consumption. Ultimately, this vision allows us to synchronize ourselves ideally with sustainable production and the principles of a true circular economy applied to technological development.", 
-                footMain: "Karen Michel Olaya Doncel | SENA • Textile and Leather Manufacturing Center", footSub: "Software Analysis and Development (ADSO) - 2026" 
-            }
-        };
-
-        btnLang.addEventListener('click', () => {
-            isEnglish = !isEnglish;
-            const lang = isEnglish ? 'en' : 'es';
-            btnLang.innerHTML = isEnglish ? '<i class="bi bi-translate"></i> Ver en Español' : '<i class="bi bi-translate"></i> Ver en Inglés';
-            document.getElementById('nav-inicio').textContent = translations[lang].navInicio;
-            document.getElementById('nav-experiencia').textContent = translations[lang].navExp;
-            document.getElementById('nav-sostenibilidad').textContent = translations[lang].navSos;
-            document.getElementById('hero-badge').textContent = translations[lang].badge;
-            document.getElementById('hero-title').textContent = translations[lang].title;
-            document.getElementById('hero-desc').textContent = translations[lang].desc;
-            document.getElementById('section-title').textContent = translations[lang].secTitle;
-            document.getElementById('card1-title').textContent = translations[lang].card1Title;
-            document.getElementById('card1-text').textContent = translations[lang].card1Text;
-            document.getElementById('card2-title').textContent = translations[lang].card2Title;
-            document.getElementById('card2-text').textContent = translations[lang].card2Text;
-            document.getElementById('card3-title').textContent = translations[lang].card3Title;
-            document.getElementById('card3-text').textContent = translations[lang].card3Text;
-            document.getElementById('sos-title').textContent = translations[lang].sosTitle;
-            document.getElementById('sos-desc').textContent = translations[lang].sosDesc;
-            document.getElementById('footer-main').textContent = translations[lang].footMain;
-            document.getElementById('footer-sub').textContent = translations[lang].footSub;
-        });
-    </script>
 </body>
 </html>
