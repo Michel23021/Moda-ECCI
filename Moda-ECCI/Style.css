@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda ECCI - Espacio Creativo</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        /* Paleta de Colores Pasteles y Efectos Glassmorphism */
+        :root {
+            --pastel-bg: #f3f4f9;
+            --pastel-purple: #e8dbfc;
+            --pastel-blue: #dbe9fe;
+            --pastel-mint: #d1fae5;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --glass-white: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--pastel-bg);
+            color: var(--text-dark);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar de Cristal Pastel */
+        .navbar-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #4a5568 !important;
+        }
+
+        /* Sección de Encabezado con Degradado Suave */
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-blue), var(--pastel-mint));
+            padding: 100px 0;
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 50px;
+        }
+
+        /* Tarjetas Estilo Vidrio Templado */
+        .card-glass {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border) !important;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-glass:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.08);
+        }
+
+        /* Botones Pasteles Dinámicos */
+        .btn-toggle-lang {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            color: var(--text-dark);
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 8px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .btn-toggle-lang:hover, .btn-toggle-lang.active {
+            background: #fff;
+            color: #6b46c1;
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(107, 70, 193, 0.15);
+        }
+
+        /* Contenedores de Fotos Interactivos */
+        .gallery-item {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover {
+            background: #fff;
+            transform: scale(1.03);
+            border-color: #6b46c1;
+        }
+
+        /* Iconos con colores armónicos para la paleta pastel */
+        .c-icon {
+            color: #6b46c1;
+        }
+
+        /* Transición de idiomas */
+        .lang-content {
+            transition: opacity 0.3s ease;
+        }
+        
+        .d-none-lang {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-glass sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-palette-fill c-icon"></i> MODA ECCI x ADSO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" id="nav-inicio" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" id="nav-experiencia" href="#experiencia">Mi Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" id="nav-sostenibilidad" href="#sostenibilidad">Sostenibilidad</a></li>
+                    <li class="nav-item me-2">
+                        <a class="btn btn-sm rounded-pill px-3 fw-semibold shadow-sm" style="background: rgba(255,255,255,0.8); border: 1px solid var(--glass-border); color: var(--text-dark);" href="glossary.html">
+                            <i class="bi bi-search"></i> Glossary
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0">
+                        <button id="btnToggleLang" class="btn-toggle-lang btn-sm"><i class="bi bi-translate"></i> Ver en Inglés</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER / HERO PRINCIPAL -->
+    <header id="inicio" class="hero-gradient text-center">
+        <div class="container">
+            <span class="badge mb-3 px-3 py-2 rounded-pill shadow-sm fw-semibold" style="background: rgba(255,255,255,0.6); color: #4a5568;" id="hero-badge">Ponencia de Sara Viloria</span>
+            <h1 class="display-4 fw-bold mb-3 text-uppercase" style="color: #2d3748;" id="hero-title">El Color es un Lenguaje Caprichoso</h1>
+            <p class="fs-5 text-secondary max-w-2xl mx-auto" id="hero-desc">Análisis técnico de la semiología visual, contrastes y armonías cromáticas aplicadas al diseño de interfaces UX.</p>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container my-5">
+        
+        <!-- SECCIÓN: MI EXPERIENCIA CON EL COLOR -->
+        <section id="experiencia" class="my-5">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold text-uppercase text-dark" id="section-title" style="letter-spacing: 1px;">Mi Experiencia con el Color</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4 justify-content-center mx-auto" style="max-width: 1100px;">
+                
+                <!-- Tarjeta 1: Percepción Visual -->
+                <div class="col-12 col-md-4">
+                    <div class="card card-glass h-100 p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-eye-fill c-icon fs-3 me-3"></i>
+                            <h5 class="fw-bold text-dark m-0" id="card1-title">Percepción Visual</h5>
+                        </div>
+                        <div class="lang-content">
+                            <p class="text-secondary lh-base small mb-0" id="card1-text">
+                                Mi experiencia en la ponencia me permitió entender el color no solo como un elemento estético, sino como un lenguaje técnico y estratégico. Comprendí cómo el cerebro procesa los tonos a través de la percepción visual.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Armonías Cromáticas -->
+                <div class="col-12 col-md-4">
+                    <div class="card card-glass h-100 p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-bezier2 c-icon fs-3 me-3"></i>
+                            <h5 class="fw-bold text-dark m-0" id="card2-title">Armonías y Círculo</h5>
+                        </div>
+                        <div class="lang-content">
+                            <p class="text-secondary lh-base small mb-0" id="card2-text">
+                                Entendí cómo la correcta selección de las paletas cromáticas dentro del círculo —ya sean armonías complementarias o tríadas— influye directamente en la psicología y la interacción final del usuario con la interfaz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Contraste en Interfaces -->
+                <div class="col-12 col-md-4">
+                    <div class="card card-glass h-100 p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-layout-wtf c-icon fs-3 me-3"></i>
+                            <h5 class="fw-bold text-dark m-0" id="card3-title">Contraste UX</h5>
+                        </div>
+                        <div class="lang-content">
+                            <p class="text-secondary lh-base small mb-0" id="card3-text">
+                                Aprendí a valorar el impacto del contraste: cómo el alto contraste inyecta energía y dinamismo en elementos clave de una interfaz web, mientras que el bajo contraste aporta suavidad y madurez al diseño.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GALERÍA MULTIMEDIA -->
+            <div class="row mt-5 g-3">
+                <div class="col-12 text-center mb-2">
+                    <h4 class="fw-bold text-uppercase text-dark" id="gallery-title" style="letter-spacing: 1px;">Evidencias de la Teoría del Color</h4>
+                    <p class="text-muted" id="gallery-desc">Haz clic en cualquier espacio para cargar y ampliar tu diapositiva</p>
+                </div>
+                
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800', 'Imagen 1')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 1</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800', 'Imagen 2')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 2</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800', 'Imagen 3')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 3</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800', 'Imagen 4')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 4</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800', 'Imagen 5')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 5</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800', 'Imagen 6')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 6</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1500462969772-60d5de501cbd?q=80&w=800', 'Imagen 7')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 7</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1541356675284-11a5e8a3e56c?q=80&w=800', 'Imagen 8')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 8</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800', 'Imagen 9')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 9</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="gallery-item p-3 text-center" onclick="openLightbox('https://images.unsplash.com/photo-152590901e-4578a1ba4669?q=80&w=800', 'Imagen 10')">
+                        <i class="bi bi-image c-icon fs-2 mb-2"></i>
+                        <small class="fw-semibold text-dark text-truncate d-block w-100 gallery-txt">Imagen 10</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE SOSTENIBILIDAD -->
+        <section id="sostenibilidad" class="my-5">
+            <div class="card card-glass p-5 text-center">
+                <h3 class="fw-bold text-dark mb-4" id="sos-title">Tecnología, Sostenibilidad y Economía Circular</h3>
+                <p class="text-muted mx-auto max-w-2xl lh-lg" id="sos-desc">
+                    La conferencia nos invitó a ver el material como la ejecución y el color como la promesa. Llevado al software ADSO, la optimización técnica de interfaces y arquitecturas reduce el desperdicio informático y el consumo energético innecesario, sincronizándose de manera idónea con la producción sostenible y la economía circular actual.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL LIGHTBOX PARA AMPLIAR -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px;">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="modal-title">Visualización de Diapositiva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="lightboxImg" src="" class="img-fluid rounded border-0 shadow-sm" alt="Diapositiva Ampliada">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="text-center py-4 mt-5" style="border-top: 1px solid var(--glass-border); background: rgba(255,255,255,0.4);">
+        <p class="mb-1 text-dark fw-semibold" id="footer-main">SENA • Centro de Manufactura en Textil y Cuero</p>
+        <small class="text-muted" id="footer-sub">Análisis y Desarrollo de Software (ADSO) - 2026</small>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- LÓGICA JAVASCRIPT PERSONALIZADA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnLang = document.getElementById('btnToggleLang');
+            let isEnglish = false;
+
+            const translations = {
+                es: {
+                    navInicio: "Inicio",
+                    navExp: "Mi Experiencia",
+                    navSos: "Sostenibilidad",
+                    badge: "Ponencia de Sara Viloria",
+                    title: "El Color es un Lenguaje Caprichoso",
+                    desc: "Análisis técnico de la semiología visual, contrastes y armonías cromáticas aplicadas al diseño de interfaces UX.",
+                    secTitle: "Mi Experiencia con el Color",
+                    card1Title: "Percepción Visual",
+                    card1Text: "Mi experiencia en la ponencia me permitió entender el color no solo como un elemento estético, sino como un lenguaje técnico y estratégico. Comprendí cómo el cerebro procesa los tonos a través de la percepción visual.",
+                    card2Title: "Armonías y Círculo",
+                    card2Text: "Entendí cómo la correcta selección de las paletas cromáticas dentro del círculo —ya sean armonías complementarias o tríadas— influye directamente en la psicología y la interacción final del usuario con la interfaz.",
+                    card3Title: "Contraste UX",
+                    card3Text: "Aprendí a valorar el impacto del contraste: cómo el alto contraste inyecta energía y dinamismo en elementos clave de una interfaz web, mientras que el bajo contraste aporta suavidad y madurez al diseño.",
+                    galTitle: "Evidencias de la Teoría del Color",
+                    galDesc: "Haz clic en cualquier espacio para cargar y ampliar tu diapositiva",
+                    galItem: "Imagen ",
+                    sosTitle: "Tecnología, Sostenibilidad y Economía Circular",
+                    sosDesc: "La conferencia nos invitó a ver el material como la ejecución y el color como la promesa. Llevado al software ADSO, la optimización técnica de interfaces y arquitecturas reduce el desperdicio informático y el consumo energético innecesario, sincronizándose de manera idónea con la producción sostenible y la economía circular actual.",
+                    modalTitle: "Visualización de Diapositiva",
+                    footMain: "SENA • Centro de Manufactura en Textil y Cuero",
+                    footSub: "Análisis y Desarrollo de Software (ADSO) - 2026"
+                },
+                en: {
+                    navInicio: "Home",
+                    navExp: "My Experience",
+                    navSos: "Sustainability",
+                    badge: "Sara Viloria's Keynote",
+                    title: "Color is a Capricious Language",
+                    desc: "Technical analysis of visual semiotics, contrasts, and chromatic harmonies applied to UX interface design.",
+                    secTitle: "My Experience with Color",
+                    card1Title: "Visual Perception",
+                    card1Text: "My experience during the keynote allowed me to understand color not just as an aesthetic element, but as a technical and strategic language. I learned how the brain processes tones through visual perception.",
+                    card2Title: "Harmonies & Wheel",
+                    card2Text: "I understood how selecting correct color palettes within the wheel—whether complementary or triad harmonies—directly impacts psychology and ultimate user interaction with the interface.",
+                    card3Title: "UX Contrast",
+                    card3Text: "I learned to evaluate contrast impact: how high contrast injects energy and dynamism into key elements of a web interface, while low contrast brings softness and maturity to the layout.",
+                    galTitle: "Evidence of Color Theory",
+                    galDesc: "Click on any space to load and expand your slide",
+                    galItem: "Image ",
+                    sosTitle: "Technology, Sustainability, and Circular Economy",
+                    sosDesc: "The conference invited us to look at material as execution and color as promise. Applied to ADSO software, technical optimization of interfaces and architectures reduces computer waste and unneeded energy consumption, perfectly syncing with sustainable manufacturing and today's circular economy.",
+                    modalTitle: "Slide Visualization",
+                    footMain: "SENA • Textile and Leather Manufacturing Center",
+                    footSub: "Software Analysis and Development (ADSO) - 2026"
+                }
+            };
+
+            btnLang.addEventListener('click', function() {
+                isEnglish = !isEnglish;
+                const lang = isEnglish ? 'en' : 'es';
+
+                if (isEnglish) {
+                    btnLang.innerHTML = '<i class="bi bi-translate"></i> Ver en Español';
+                    btnLang.classList.add('active');
+                } else {
+                    btnLang.innerHTML = '<i class="bi bi-translate"></i> Ver en Inglés';
+                    btnLang.classList.remove('active');
+                }
+
+                document.getElementById('nav-inicio').textContent = translations[lang].navInicio;
+                document.getElementById('nav-experiencia').textContent = translations[lang].navExp;
+                document.getElementById('nav-sostenibilidad').textContent = translations[lang].navSos;
+                document.getElementById('hero-badge').textContent = translations[lang].badge;
+                document.getElementById('hero-title').textContent = translations[lang].title;
+                document.getElementById('hero-desc').textContent = translations[lang].desc;
+                document.getElementById('section-title').textContent = translations[lang].secTitle;
+                
+                document.getElementById('card1-title').textContent = translations[lang].card1Title;
+                document.getElementById('card1-text').textContent = translations[lang].card1Text;
+                document.getElementById('card2-title').textContent = translations[lang].card2Title;
+                document.getElementById('card2-text').textContent = translations[lang].card2Text;
+                document.getElementById('card3-title').textContent = translations[lang].card3Title;
+                document.getElementById('card3-text').textContent = translations[lang].card3Text;
+
+                document.getElementById('gallery-title').textContent = translations[lang].galTitle;
+                document.getElementById('gallery-desc').textContent = translations[lang].galDesc;
+                document.getElementById('sos-title').textContent = translations[lang].sosTitle;
+                document.getElementById('sos-desc').textContent = translations[lang].sosDesc;
+                document.getElementById('modal-title').textContent = translations[lang].modalTitle;
+                document.getElementById('footer-main').textContent = translations[lang].footMain;
+                document.getElementById('footer-sub').textContent = translations[lang].footSub;
+
+                const galleryTexts = document.querySelectorAll('.gallery-txt');
+                galleryTexts.forEach((item, index) => {
+                    item.textContent = translations[lang].galItem + (index + 1);
+                });
+            });
+        });
+
+        function openLightbox(imgSrc, titleText) {
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('modal-title').textContent = titleText;
+            const myModal = new bootstrap.Modal(document.getElementById('lightboxModal'));
+            myModal.show();
+        }
+    </script>
+</body>
+</html>
